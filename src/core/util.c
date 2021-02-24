@@ -27,7 +27,6 @@
 
 #include <config.h>
 #include "util.h"
-#include "main.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -444,7 +443,7 @@ meta_fatal (const char *format, ...)
 
   g_free (str);
 
-  meta_exit (META_EXIT_ERROR);
+  exit (EXIT_FAILURE);
 }
 
 void
@@ -459,13 +458,6 @@ meta_pop_no_msg_prefix (void)
   g_return_if_fail (no_prefix > 0);
 
   --no_prefix;
-}
-
-void
-meta_exit (MetaExitCode code)
-{
-
-  exit (code);
 }
 
 gint

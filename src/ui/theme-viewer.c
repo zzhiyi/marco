@@ -873,7 +873,7 @@ main (int argc, char **argv)
   else
     {
       g_printerr (_("Usage: marco-theme-viewer [THEMENAME]\n"));
-      exit (1);
+      exit (EXIT_FAILURE);
     }
   end = clock ();
 
@@ -882,7 +882,7 @@ main (int argc, char **argv)
       g_printerr (_("Error loading theme: %s\n"),
                   err->message);
       g_error_free (err);
-      exit (1);
+      exit (EXIT_FAILURE);
     }
 
   g_print (_("Loaded theme \"%s\" in %g seconds\n"),
@@ -970,7 +970,7 @@ main (int argc, char **argv)
 
   gtk_main ();
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 static MetaFrameFlags
